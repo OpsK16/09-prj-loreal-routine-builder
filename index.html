@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
+    <title data-i18n="page_title">
+      L'Oréal | Smart Routine &amp; Product Advisor
+    </title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
       rel="stylesheet"
@@ -20,23 +22,78 @@
       <!------- Header / Branding ------->
       <header class="site-header">
         <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
-        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        <h1 class="site-title" data-i18n="site_title">
+          Smart Routine &amp; Product Advisor
+        </h1>
       </header>
 
-      <!-- Category Filter -->
-      <div class="search-section">
-        <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
-          <option value="cleanser">Cleansers</option>
-          <option value="moisturizer">Moisturizers & Treatments</option>
-          <option value="haircare">Haircare</option>
-          <option value="makeup">Makeup</option>
-          <option value="hair color">Hair Color</option>
-          <option value="hair styling">Hair Styling</option>
-          <option value="men's grooming">Men's Grooming</option>
-          <option value="suncare">Suncare</option>
-          <option value="fragrance">Fragrance</option>
-        </select>
+      <!-- Filters + Direction Controls -->
+      <div class="controls-bar">
+        <div class="search-section">
+          <label
+            for="categoryFilter"
+            class="visually-hidden"
+            data-i18n="filter_by_category"
+            >Filter by category</label
+          >
+          <select id="categoryFilter">
+            <option value="" selected data-i18n="all_categories">
+              All Categories
+            </option>
+            <option value="cleanser" data-i18n="category_cleanser">
+              Cleansers
+            </option>
+            <option value="moisturizer" data-i18n="category_moisturizer">
+              Moisturizers & Treatments
+            </option>
+            <option value="skincare" data-i18n="category_skincare">
+              Skincare Serums & Treatments
+            </option>
+            <option value="haircare" data-i18n="category_haircare">
+              Haircare
+            </option>
+            <option value="makeup" data-i18n="category_makeup">Makeup</option>
+            <option value="hair color" data-i18n="category_hair_color">
+              Hair Color
+            </option>
+            <option value="hair styling" data-i18n="category_hair_styling">
+              Hair Styling
+            </option>
+            <option value="men's grooming" data-i18n="category_mens_grooming">
+              Men's Grooming
+            </option>
+            <option value="suncare" data-i18n="category_suncare">
+              Suncare
+            </option>
+            <option value="fragrance" data-i18n="category_fragrance">
+              Fragrance
+            </option>
+          </select>
+
+          <label
+            for="productSearch"
+            class="visually-hidden"
+            data-i18n="search_products"
+            >Search products</label
+          >
+          <input
+            id="productSearch"
+            type="search"
+            placeholder="Search by name or keyword"
+            autocomplete="off"
+            data-i18n-placeholder="search_placeholder"
+          />
+        </div>
+
+        <div class="direction-section">
+          <label for="directionToggle" data-i18n="direction_label"
+            >Direction</label
+          >
+          <select id="directionToggle" aria-label="Toggle layout direction">
+            <option value="ltr" data-i18n="direction_ltr">LTR</option>
+            <option value="rtl" data-i18n="direction_rtl">RTL</option>
+          </select>
+        </div>
       </div>
 
       <!-- Products Grid -->
@@ -44,20 +101,34 @@
 
       <!-- Selected Products -->
       <div class="selected-products">
-        <h2>Selected Products</h2>
+        <h2 data-i18n="selected_products_title">Selected Products</h2>
         <div id="selectedProductsList"></div>
+        <button
+          id="clearSelections"
+          class="secondary-btn"
+          type="button"
+          data-i18n="clear_all_selections"
+        >
+          Clear All Selections
+        </button>
         <button id="generateRoutine" class="generate-btn">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span data-i18n="generate_routine">Generate Routine</span>
         </button>
       </div>
 
       <!------- Chat Area ------->
       <section class="chatbox">
-        <h2>Let's Build Your Routine</h2>
+        <h2 data-i18n="chat_title">Let's Build Your Routine</h2>
         <div id="chatWindow" class="chat-window"></div>
 
         <form id="chatForm" class="chat-form">
-          <label for="userInput" class="visually-hidden">Message</label>
+          <label
+            for="userInput"
+            class="visually-hidden"
+            data-i18n="message_label"
+            >Message</label
+          >
           <input
             id="userInput"
             name="userInput"
@@ -65,28 +136,29 @@
             placeholder="Ask me about products or routines…"
             autocomplete="off"
             required
+            data-i18n-placeholder="chat_placeholder"
           />
-          <button type="submit" id="sendBtn">
+          <button type="submit" id="sendBtn" disabled>
             <i class="fa-solid fa-paper-plane"></i>
-            <span class="visually-hidden">Send</span>
+            <span class="visually-hidden" data-i18n="send_label">Send</span>
           </button>
         </form>
       </section>
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 L'Oréal. All rights reserved.</p>
+        <p data-i18n="footer_copyright">
+          &copy; 2025 L'Oréal. All rights reserved.
+        </p>
         <nav>
           <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+          <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer_terms">Terms of Use</a>
+          <a href="#" data-i18n="footer_contact">Contact</a>
         </nav>
       </footer>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
